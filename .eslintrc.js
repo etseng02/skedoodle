@@ -14,7 +14,7 @@ module.exports = {
   },
   "rules": {
     "object-curly-spacing": ["warn", "always"],
-    "quotes": "off",
+    "quotes": [2, "double", { "avoidEscape": true }],
     "no-unused-vars": [
       "warn",
       {
@@ -62,7 +62,7 @@ module.exports = {
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-wrap-multilines": "off",
     "react/destructuring-assignment": "off",
-    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/quotes": [2, "double", { "avoidEscape": true }],
     "@typescript-eslint/semi": "off"
   }
 }
