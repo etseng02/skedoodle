@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import MenuItem from "./MenuItem"
 
 const Menu: React.FC = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState<string | null>(null);
-  const [selectedSubMenuItem, SetSelectedSubMenuItem] = useState<string | null>(null);
+  const [selectedSubMenuItem, setSelectedSubMenuItem] = useState<string | null>(null);
 
   const handleBackButton = (): void => {
     if (selectedSubMenuItem) {
-      SetSelectedSubMenuItem(null);
+      setSelectedSubMenuItem(null);
     } else {
       setSelectedMenuItem(null);
     }
@@ -14,26 +15,31 @@ const Menu: React.FC = () => {
 
   return (
     <>
-      <div className="bg-gray-200 m-auto mt-16 w-3/5 lg:w-4/12 p-6 ">
-        {selectedMenuItem !== null || selectedSubMenuItem !== null ? <button type="button" onClick={() => handleBackButton()}>Back</button> : null}
-        <div className="flex flex-col space-y-4">
+      <div className="bg-gray-200 h-64 m-auto mt-16 w-3/5 lg:w-4/12 p-6 ">
+
+        {selectedMenuItem !== null || selectedSubMenuItem !== null ?
+          <button className="ml-0 w-10 float-left relative flex-1 justify-start text-left" type="button" onClick={() => handleBackButton()}>Back</button>
+          : null}
+
+
+
+        <div className="flex flex-col space-y-4 m-2 mt-6">
           {selectedMenuItem === null && (
             <>
-              <button type="button" onClick={() => setSelectedMenuItem("play")}>Play</button>
-              <button type="button">How to Play</button>
-              <button type="button">Settings</button>
-              <button type="button">About</button>
+              <MenuItem navigateMenu={() => setSelectedMenuItem("play")}>Play</MenuItem>
+              <MenuItem navigateMenu={() => setSelectedMenuItem("how to play")}>How to Play</MenuItem>
+              <MenuItem navigateMenu={() => setSelectedMenuItem("settings")}>Settings</MenuItem>
+              <MenuItem navigateMenu={() => setSelectedMenuItem("about")}>About</MenuItem>
             </>
           )}
 
           {selectedMenuItem === "play" && selectedSubMenuItem === null && (
             <>
-              <button type="button" id="join-room" onClick={() => { }}>
-                Join Room
-              </button>
-              <button type="button" id="create-room">
-                Create Room
-              </button>
+              <div className="flex justify-between">
+
+                <MenuItem navigateMenu={() => setSelectedSubMenuItem("join room")}>Join Room</MenuItem>
+              </div>
+              <MenuItem navigateMenu={() => setSelectedSubMenuItem("create room")}>Create Room</MenuItem>
             </>
           )}
         </div>
