@@ -1,10 +1,20 @@
 module.exports = {
-  endOfLine: 'lf',
-  parser: 'babel',
+  // endOfLine: 'lf',
+  // parser: 'babel',
+  // semi: false,
+  // semicolons: false,
+  // singleQuote: false,
+  // tabWidth: 2,
+  // trailingComma: 'all',
+  // arrowParens: 'avoid',
+
   semi: false,
-  semicolons: false,
-  singleQuote: false,
+  printWidth: 140,
   tabWidth: 2,
-  trailingComma: 'all',
-  arrowParens: 'avoid',
-};
+  singleQuote: false,
+  bracketSpacing: true,
+  // jsxBracketSameLine: false,
+  arrowParens: "avoid",
+  jsxSingleQuote: false,
+  trailingComma: "all",
+}
